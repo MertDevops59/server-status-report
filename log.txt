@@ -1,0 +1,5 @@
+[10:00] Sunucu başladı
+[10:05] Kullanıcı giriş yaptı
+[10:10] ERROR: Bağlantı kesildi
+[10:15] Tekrar Bağlandı
+(10:20] ERROR: Disk dolu
