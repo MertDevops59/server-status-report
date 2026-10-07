@@ -1,16 +1,19 @@
 
 import subprocess
 
+def run_cmd(komut):
+    result = subprocess.run (komut, capture_output=True, text=True)
+    return result.stdout.strip()
 
-hostname = subprocess.run(["hostname"],capture_output=True, text=True)
-username = subprocess.run(["whoami"],capture_output=True, text=True)
-files    = subprocess.run(["ls","-al"],capture_output=True, text=True)
-uptime   = subprocess.run(["uptime"],capture_output=True, text=True)
-disk     = subprocess.run(["df","-h"],capture_output=True, text=True)
-disk_info = disk.stdout.split()
-print (disk_info)
-ram      = subprocess.run(["free","-h"],capture_output=True, text=True)
+hostname = run_cmd(["hostname"])
+username = run_cmd(["whoami"])
+files    = run_cmd(["ls","-al"])
+uptime   = run_cmd(["uptime"])
+disk     = run_cmd(["df","-h"])
+
+
+ram      = run_cmd(["free","-h"])
 
 print ("========================== LİNUX SYSTEM CEHCKER ===========================")
-print ("UserName:",username.stdout,"\nHostName:",hostname.stdout,"\nUpTime:",uptime.stdout,"\nRam:",ram.stdout,"\nDisk:",disk.stdout,"\nFiles:",files.stdout)
+print ("UserName:",username,"\nHostName:",hostname,"\nUpTime:",uptime,"\nRam:",ram,"\nDisk:",disk,"\nFiles:",files)
 print ("============================================================================")
